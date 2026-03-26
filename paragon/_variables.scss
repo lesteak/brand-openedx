@@ -1,2 +1,26 @@
-// Use this file to set SASS variables for @edx/paragon
-// See _variables.scss in https://github.com/openedx/paragon/blob/master/scss/core/ for reference
+// Transition Network — Paragon brand variables
+// Primary:   #003D5B  night sky blue
+// Accent:    #00798C  teal
+// Secondary: #D1495B  sunset coral
+// Base:      #FBF8EF  warm off-white
+
+// Core palette
+$primary:   #003D5B;
+$secondary: #D1495B;
+$success:   #2E7D32;
+$warning:   #EDAE49;
+$danger:    #C62828;
+$info:      #00798C;
+
+// Body
+$body-bg:    #FBF8EF;
+$body-color: #4D4D4D;
+
+// Links
+$link-color:       #003D5B;
+$link-hover-color: #00798C;
+
+// Border radius
+$border-radius:    8px;
+$border-radius-sm: 6px;
+$border-radius-lg: 12px;
