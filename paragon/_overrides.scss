@@ -1,2 +1,23 @@
-// Use this file to define style overrides for @edx/paragon
-// This file is included after all Paragon styles, but should generally avoid using private mixins in Paragon.
+// Transition Network — Paragon style overrides
+
+// Force btn-brand to use navy primary
+.btn-brand {
+  background-color: #003D5B !important;
+  border-color: #002d44 !important;
+  color: #FBF8EF !important;
+
+  &:hover, &:focus {
+    background-color: #00798C !important;
+    border-color: #005a69 !important;
+  }
+}
+
+// Primary panel background should be full navy, not generated shade
+.bg-primary-400 {
+  background-color: #003D5B !important;
+}
+
+// bg-white should use off-white
+.bg-white {
+  background-color: #FBF8EF !important;
+}
