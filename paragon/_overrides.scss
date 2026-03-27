@@ -21,3 +21,14 @@
 .bg-white {
   background-color: #FBF8EF !important;
 }
+
+// Accent text on dark backgrounds should be white, not teal-on-teal
+.text-accent-a {
+  color: #FFFFFF !important;
+}
+
+// SVG diagonal fill
+.large-screen-svg-primary rect,
+.medium-screen-svg-primary rect {
+  fill: #003D5B !important;
+}
