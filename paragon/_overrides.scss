@@ -17,9 +17,31 @@
   background-color: #003D5B !important;
 }
 
-// bg-white should use off-white
-.bg-white {
-  background-color: #FBF8EF !important;
+// Cream (#FBF8EF) is the page background only. Header, footer, cards and
+// form fields stay white so the cream doesn't overpower the site.
+header,
+header.site-header-desktop,
+header.site-header-mobile,
+.learning-header,
+.learner-variant-header {
+  background-color: #FFFFFF !important;
+}
+
+footer,
+footer.footer {
+  background-color: #FFFFFF !important;
+}
+
+.pgn__card,
+.card {
+  background-color: #FFFFFF;
+}
+
+.form-control,
+.pgn__form-control-decorator-group .form-control,
+textarea,
+select {
+  background-color: #FFFFFF;
 }
 
 // Accent text on dark backgrounds should be white, not teal-on-teal

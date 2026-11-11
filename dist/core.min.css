@@ -7,7 +7,19 @@
 .btn-brand:hover,.btn-brand:focus{background-color: #00798C !important;
     border-color: #005a69 !important;}
 .bg-primary-400{background-color: #003D5B !important;}
-.bg-white{background-color: #FBF8EF !important;}
+header,
+header.site-header-desktop,
+header.site-header-mobile,
+.learning-header,
+.learner-variant-header{background-color: #FFFFFF !important;}
+footer,
+footer.footer{background-color: #FFFFFF !important;}
+.pgn__card,
+.card{background-color: #FFFFFF;}
+.form-control,
+.pgn__form-control-decorator-group .form-control,
+textarea,
+select{background-color: #FFFFFF;}
 .text-accent-a{color: #FFFFFF !important;}
 .large-screen-svg-primary rect,
 .medium-screen-svg-primary rect{fill: #003D5B !important;}

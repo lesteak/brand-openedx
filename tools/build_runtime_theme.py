@@ -101,9 +101,10 @@ def main() -> None:
         tn_vars += scale_vars(name, TN[name], weights)
     tn_vars += [
         f"--pgn-color-accent-a:{TN['accent']}",
-        f"--pgn-color-white:{TN['offwhite']}",
+        # White stays white (cards, inputs, dropdowns use bg-base -> white);
+        # only the page background is cream.
         f"--pgn-color-body-base:{TN['body']}",
-        f"--pgn-color-bg-base:{TN['offwhite']}",
+        f"--pgn-color-body-bg:{TN['offwhite']}",
         f"--pgn-color-link-base:{TN['primary']}",
         f"--pgn-color-link-hover:{TN['accent']}",
         "--pgn-size-border-radius-base:8px",
