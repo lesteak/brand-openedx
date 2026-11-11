@@ -45,6 +45,23 @@ select {
 }
 
 // Accent text on dark backgrounds should be white, not teal-on-teal
+// Course (learning) header: keep the TN logo the same size as on the
+// homepage (44px) instead of shrinking it to the course title lockup.
+header.learning-header .logo {
+  flex-shrink: 0;
+  height: auto !important;
+  padding: 0 !important;
+  margin-right: 1.5rem;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+header.learning-header .logo .logo-image {
+  height: 44px !important;
+  width: auto !important;
+  max-width: none !important;
+  border: 0 !important;
+}
+
 .text-accent-a {
   color: #FFFFFF !important;
 }

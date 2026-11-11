@@ -20,6 +20,16 @@ footer.footer{background-color: #FFFFFF !important;}
 .pgn__form-control-decorator-group .form-control,
 textarea,
 select{background-color: #FFFFFF;}
+header.learning-header .logo{flex-shrink: 0;
+  height: auto !important;
+  padding: 0 !important;
+  margin-right: 1.5rem;
+  border: 0 !important;
+  box-shadow: none !important;}
+header.learning-header .logo .logo-image{height: 44px !important;
+  width: auto !important;
+  max-width: none !important;
+  border: 0 !important;}
 .text-accent-a{color: #FFFFFF !important;}
 .large-screen-svg-primary rect,
 .medium-screen-svg-primary rect{fill: #003D5B !important;}
