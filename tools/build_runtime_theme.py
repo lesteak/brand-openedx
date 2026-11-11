@@ -38,10 +38,8 @@ TN = {
     "warning": "#EDAE49",
     "danger": "#C62828",
     "info": "#00798C",
-    "offwhite": "#FBF8EF",
     "body": "#4D4D4D",
 }
-LIGHT_SCALE = {"100": "#FBF8EF", "200": "#f0ede4", "300": "#e5e2d9", "400": "#E5E7EB", "500": "#4D4D4D"}
 LEVELS = ["100", "200", "300", "400", "600", "700", "800", "900"]
 
 
@@ -101,17 +99,15 @@ def main() -> None:
         tn_vars += scale_vars(name, TN[name], weights)
     tn_vars += [
         f"--pgn-color-accent-a:{TN['accent']}",
-        # White stays white (cards, inputs, dropdowns use bg-base -> white);
-        # only the page background is cream.
+        # White backgrounds throughout (the TN cream #FBF8EF was dropped
+        # 2026-11-11 as too overpowering); Indigo's neutral light scale is kept.
         f"--pgn-color-body-base:{TN['body']}",
-        f"--pgn-color-body-bg:{TN['offwhite']}",
         f"--pgn-color-link-base:{TN['primary']}",
         f"--pgn-color-link-hover:{TN['accent']}",
         "--pgn-size-border-radius-base:8px",
         "--pgn-size-border-radius-sm:6px",
         "--pgn-size-border-radius-lg:12px",
     ]
-    tn_vars += [f"--pgn-color-light-{k}:{v}" for k, v in LIGHT_SCALE.items()]
     light_layer = "\n/* Transition Network palette */\n:root{" + ";".join(tn_vars) + "}\n"
 
     # Indigo restyles the authn MFE (pale blue background, blurred blobs,
