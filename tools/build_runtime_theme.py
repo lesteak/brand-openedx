@@ -113,6 +113,12 @@ def main() -> None:
     tn_vars += [f"--pgn-color-light-{k}:{v}" for k, v in LIGHT_SCALE.items()]
     light_layer = "\n/* Transition Network palette */\n:root{" + ";".join(tn_vars) + "}\n"
 
+    # Indigo restyles the authn MFE (pale blue background, blurred blobs,
+    # hidden navy panel). TN used the stock authn layout with its own
+    # palette, so drop those rules and let _overrides.scss style it.
+    core, removed = strip_rules(core, "#root .layout")
+    print(f"removed {removed} Indigo authn layout rules")
+
     overrides = (ROOT / "paragon" / "_overrides.scss").read_text(encoding="utf-8")
     core_layer = "\n/* Transition Network overrides (paragon/_overrides.scss) */\n" + scss_to_css(overrides)
 
@@ -122,6 +128,41 @@ def main() -> None:
     print("primary scale weights:", {k: round(v, 3) for k, v in weights.items()})
     for f in sorted(DIST.glob("*.css")):
         print(f"{f.name}: {f.stat().st_size} bytes")
+
+
+def strip_rules(css: str, needle: str) -> tuple[str, int]:
+    """Remove rules whose selector contains `needle`, including inside @media.
+
+    Handles the flat minified output of Paragon/Indigo builds: top-level
+    rules and one level of @-block nesting. Empty @-blocks are dropped.
+    """
+    out, removed, i, n = [], 0, 0, len(css)
+    while i < n:
+        brace = css.find("{", i)
+        if brace == -1:
+            out.append(css[i:])
+            break
+        prelude = css[i:brace]
+        if prelude.lstrip().startswith("@") and not prelude.lstrip().startswith("@import"):
+            depth, j = 1, brace + 1
+            while depth and j < n:
+                depth += {"{": 1, "}": -1}.get(css[j], 0)
+                j += 1
+            inner, inner_removed = strip_rules(css[brace + 1 : j - 1], needle)
+            removed += inner_removed
+            if inner.strip():
+                out.append(f"{prelude}{{{inner}}}")
+            i = j
+            continue
+        end = css.find("}", brace)
+        selector = prelude.split(";")[-1]
+        if needle in selector:
+            out.append(prelude[: len(prelude) - len(selector)])
+            removed += 1
+        else:
+            out.append(css[i : end + 1])
+        i = end + 1
+    return "".join(out), removed
 
 
 def scss_to_css(scss: str) -> str:
