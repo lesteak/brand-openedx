@@ -62,6 +62,26 @@ header.learning-header .logo .logo-image {
   border: 0 !important;
 }
 
+// Every MFE logo at the homepage size (44px). Indigo sets 48px on the
+// dashboard header, 21px on mobile/course headers, 3rem in Studio, and the
+// authn page logo renders ~24px.
+#root .logo img,
+#root header .logo img,
+#root header.site-header-desktop .logo img,
+#root header.site-header-mobile .logo-holder img,
+#root header.customise.learning-header .logo img,
+#root header.learning-header .logo img,
+#root .studio-header .logo,
+#root .studio-header .logo img,
+#root img.logo,
+.logo-image {
+  height: 44px !important;
+  width: auto !important;
+  max-width: none !important;
+  max-height: none !important;
+  padding: 0 !important;
+}
+
 .text-accent-a {
   color: #FFFFFF !important;
 }
